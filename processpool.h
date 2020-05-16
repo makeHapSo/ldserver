@@ -87,7 +87,7 @@ processpool< C, H, M >* processpool< C, H, M >::m_instance = NULL;
 
 static int EPOLL_WAIT_TIME = 5000;//eppll的超时值
 static int sig_pipefd[2];//用于处理信号的管道，以实现统一事件源,后面称之为信号管道
-static void sig_handler( int sig )//时间处理函数，将捕获的信号通过sig_pipefd发送给调用的进程
+static void sig_handler( int sig )//信号处理函数，将捕获的信号通过sig_pipefd发送给调用的进程
 {
     int save_errno = errno;
     int msg = sig;
